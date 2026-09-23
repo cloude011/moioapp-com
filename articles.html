@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moio Articles – On design tools, AI, and building what works</title>
+  <meta content="Opinions on interaction design, AI coding tools, design systems, and why designers should own behavior. From the team building Moio." name="description">
+  <meta content="Moio Articles – On design tools, AI, and building what works" property="og:title">
+  <meta content="Opinions on interaction design, AI coding tools, design systems, and why designers should own behavior. From the team building Moio." property="og:description">
+  <meta content="Moio Articles – On design tools, AI, and building what works" name="twitter:title">
+  <meta content="Opinions on interaction design, AI coding tools, design systems, and why designers should own behavior. From the team building Moio." name="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/moio.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="https://moioapp.com/articles" rel="canonical">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Moio Articles – On design tools, AI, and building what works",
+  "description": "Opinions on interaction design, AI coding tools, design systems, and why designers should own behavior. From the team building Moio.",
+  "url": "/articles",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Moio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://moioapp.com/images/Moio_logo4.svg"
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "BlogPosting",
+      "headline": "We tested AI coding assistants on a real task",
+      "description": "Migration fom NgRx to signals. One rewrote our CSS, one gave us a blog post, and one just gave up. Real helpful.",
+      "url": "/articles/we-tried-using-ai-for-real-work",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Designers should build",
+      "description": "Designers shouldn't just decorate—they should build. Great design means owning behavior, logic, and structure. With modern design-to-code tools, Figma alone won't cut it.",
+      "url": "/articles/designers-should-build",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "More than just pictures",
+      "description": "Design isn't how it looks, it's how it behaves. Most tools stop at pretty pictures—we need interactive UI prototypes, real data, and user flows that actually work. Start designing behaviors.",
+      "url": "/articles/more-than-just-pictures",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "We're turning designers into factory workers",
+      "description": "Modern tools turned designers into pixel-pushing factory workers. This article tears into no-code, AI fluff, and handoff hell—and argues for giving designers real power to build, not just decorate.",
+      "url": "/articles/were-turning-designers-into-factory-workers",
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KLYB7ZXCBN"></script>
+  <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('js', new Date());gtag('config', 'G-KLYB7ZXCBN');</script>
+  <script src="js/site.js" defer></script>
+  <noscript>
+    <img height="1" width="1" style="display: none" alt="" src="https://px.ads.linkedin.com/collect/?pid=10129793&fmt=gif">
+  </noscript>
+</head>
+<body class="body">
+  <div role="banner" class="navigation w-nav">
+    <div class="header-wrap">
+      <a href="index.html" class="logo w-nav-brand"><img src="images/Moio_logo4.svg" alt="" class="logo-image">
+        <div class="text-block-18">alpha v0.1<br></div>
+      </a>
+      <div class="menu">
+        <a href="pricing.html" class="header-nav-item small w-nav-link">Pricing</a>
+        <a href="https://moioapp.com/docs/" target="_blank" class="header-nav-item small w-nav-link">Docs</a>
+        <a href="https://moioapp.com/docs/release-notes" target="_blank" class="header-nav-item small w-nav-link">Changelog</a>
+        <a href="about.html" class="header-nav-item small w-nav-link">About</a>
+        <a id="CTA-button" href="https://moioapp.com/dashboard" target="_blank" class="waitlist-cta small w-button">Sign up</a>
+        <link rel="prerender" href="https://moioapp.com/dashboard">
+      </div>
+    </div>
+  </div>
+  <div class="w-layout-blockcontainer article-list w-container">
+    <section class="blog-post">
+      <div class="blog-columns w-row">
+        <div class="article-list-date-column w-col w-col-3">
+          <div class="date">June 14th, 2025<br>by Aleksander Kmetec</div>
+        </div>
+        <div class="blog-content-column w-col w-col-9">
+          <div class="w-layout-blockcontainer blog-entry cc-priv w-container">
+            <div class="blog-embed w-embed">
+              <style>
+  :root {
+    --paragraph-padding: 1em 0;
+    --heading-margin: 1.5em 0 0.5em;
+    --line-height: 1.6;
+  }
+  .list-title {
+    font-size: 2.5em;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .list-title a {
+    font-size: inherit;
+  	line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+    transition: color 400ms ease;
+  }
+  .list-title a:hover {
+    color: var(--lime);
+  }
+  .list-paragraph {
+    font-size: 18px;
+    margin: var(--paragraph-padding);
+    line-height: var(--line-height);
+    color: var(--mid-greenish);
+  }
+  @media screen and (max-width: 600px) {
+    .list-title {
+      font-size: 2em;
+      line-height: 1.2;
+    }
+    .list-paragraph {
+      font-size: 16px;
+    }
+  }
+</style>
+              <div class="">
+                <h1 class="list-title">
+                  <a href="articles/we-tried-using-ai-for-real-work.html">We tested AI coding assistants on a real task</a>
+                </h1>
+                <p class="list-paragraph">Migration fom NgRx to signals. One rewrote our CSS, one gave us a blog post, and one just gave up. Real helpful.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+    <section class="blog-post">
+      <div class="blog-columns w-row">
+        <div class="article-list-date-column w-col w-col-3">
+          <div class="date">August 26st, 2024<br>by Matic Pelcl</div>
+        </div>
+        <div class="blog-content-column w-col w-col-9">
+          <div class="w-layout-blockcontainer blog-entry cc-priv w-container">
+            <div class="blog-embed w-embed">
+              <style>
+  :root {
+    --paragraph-padding: 1em 0;
+    --heading-margin: 1.5em 0 0.5em;
+    --line-height: 1.6;
+  }
+  .list-title {
+    font-size: 2.5em;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .list-title a {
+    font-size: inherit;
+  	line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+    transition: color 400ms ease;
+  }
+  .list-title a:hover {
+    color: var(--lime);
+  }
+  .list-paragraph {
+    font-size: 18px;
+    margin: var(--paragraph-padding);
+    line-height: var(--line-height);
+    color: var(--mid-greenish);
+  }
+  @media screen and (max-width: 600px) {
+    .list-title {
+      font-size: 2em;
+      line-height: 1.2;
+    }
+    .list-paragraph {
+      font-size: 16px;
+    }
+  }
+</style>
+              <div class="">
+                <h1 class="list-title">
+                  <a href="articles/designers-should-build.html">Designers should build</a>
+                </h1>
+                <p class="list-paragraph">Designers shouldn’t just decorate—they should build. Great design means owning behavior, logic, and structure. With modern design-to-code tools, Figma alone won’t cut it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+    <section class="blog-post">
+      <div class="blog-columns w-row">
+        <div class="article-list-date-column w-col w-col-3">
+          <div class="date">August 4th, 2024<br>by Matic Pelcl</div>
+        </div>
+        <div class="blog-content-column w-col w-col-9">
+          <div class="w-layout-blockcontainer blog-entry cc-priv w-container">
+            <div class="blog-embed w-embed">
+              <style>
+  :root {
+    --paragraph-padding: 1em 0;
+    --heading-margin: 1.5em 0 0.5em;
+    --line-height: 1.6;
+  }
+  .list-title {
+    font-size: 2.5em;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .list-title a {
+    font-size: inherit;
+  	line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+    transition: color 400ms ease;
+  }
+  .list-title a:hover {
+    color: var(--lime);
+  }
+  .list-paragraph {
+    font-size: 18px;
+    margin: var(--paragraph-padding);
+    line-height: var(--line-height);
+    color: var(--mid-greenish);
+  }
+  @media screen and (max-width: 600px) {
+    .list-title {
+      font-size: 2em;
+      line-height: 1.2;
+    }
+    .list-paragraph {
+      font-size: 16px;
+    }
+  }
+</style>
+              <div class="">
+                <h1 class="list-title">
+                  <a href="articles/more-than-just-pictures.html">More than just pictures</a>
+                </h1>
+                <p class="list-paragraph">Design isn’t how it looks, it’s how it behaves. Most tools stop at pretty pictures—we need interactive UI prototypes, real data, and user flows that actually work. Start designing behaviors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+    <section class="blog-post">
+      <div class="blog-columns w-row">
+        <div class="article-list-date-column w-col w-col-3">
+          <div class="date">July 15th, 2024<br>by Matic Pelcl</div>
+        </div>
+        <div class="blog-content-column w-col w-col-9">
+          <div class="w-layout-blockcontainer blog-entry cc-priv w-container">
+            <div class="blog-embed w-embed">
+              <style>
+  :root {
+    --paragraph-padding: 1em 0;
+    --heading-margin: 1.5em 0 0.5em;
+    --line-height: 1.6;
+  }
+  .list-title {
+    font-size: 2.5em;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .list-title a {
+    font-size: inherit;
+  	line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+    transition: color 400ms ease;
+  }
+  .list-title a:hover {
+    color: var(--lime);
+  }
+  .list-paragraph {
+    font-size: 18px;
+    margin: var(--paragraph-padding);
+    line-height: var(--line-height);
+    color: var(--mid-greenish);
+  }
+  @media screen and (max-width: 600px) {
+    .list-title {
+      font-size: 2em;
+      line-height: 1.2;
+    }
+    .list-paragraph {
+      font-size: 16px;
+    }
+  }
+</style>
+              <div class="">
+                <h1 class="list-title">
+                  <a href="articles/factory-workers.html">We’re turning designers into factory workers</a>
+                </h1>
+                <p class="list-paragraph">Modern tools turned designers into pixel-pushing factory workers. This article tears into no-code, AI fluff, and handoff hell—and argues for giving designers real power to build, not just decorate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+    </section>
+  </div>
+  <div class="section cc-footer">
+    <div class="w-layout-blockcontainer footer w-container">
+      <div class="w-layout-grid footer-grid">
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba246422773f-6422773c" class="w-layout-blockcontainer footer-logo w-container"><img src="images/moio_icon3.svg" loading="lazy" alt="" height="48" class="footer-logo-img">
+          <div class="footer-logo-txt">Built with anxiety, whiskey and coffee. Proudly remote © 2024</div>
+          <div class="footer-address">Moio Technologies Inc.<br>8 The Green, Dover,<br>DE 19901<br></div>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba2464227743-6422773c">
+          <a href="index.html" class="text-link footer">Home</a>
+          <a href="about.html" class="text-link footer">About</a>
+          <a href="support.html" class="text-link footer">Support</a>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba2464227748-6422773c">
+          <a href="articles.html" aria-current="page" class="text-link footer w--current">Articles</a>
+          <a href="privacy-terms.html" class="text-link footer">Privacy Terms</a>
+          <a href="mailto:hi@moioapp.com" class="text-link footer">Contact Us</a>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba246422774d-6422773c" class="social-buttons">
+          <div class="footer-wrap">
+            <a href="https://www.linkedin.com/company/moioapp/" target="_blank" class="link-block w-inline-block"></a>
+            <a href="https://twitter.com/moioapp" target="_blank" class="link-block-2 w-inline-block"></a>
+            <a href="https://moioapp.slack.com/ssb/redirect" target="_blank" class="link-block-3 w-inline-block"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

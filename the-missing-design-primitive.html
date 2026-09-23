@@ -1,0 +1,672 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moio – Design how it works before you commit to code</title>
+  <meta content="It&#x27;s all in your head, perfectly clear. Then you spend six prompts trying to explain it. Moio lets you design interactions on canvas and see them run as real HTML." name="description">
+  <meta content="The missing design primitive" property="og:title">
+  <meta content="It&#x27;s all in your head, perfectly clear. Then you spend six prompts trying to explain it. Moio lets you design interactions on canvas and see them run as real HTML." property="og:description">
+  <meta content="The missing design primitive" name="twitter:title">
+  <meta content="It&#x27;s all in your head, perfectly clear. Then you spend six prompts trying to explain it. Moio lets you design interactions on canvas and see them run as real HTML." name="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/moio.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="https://moioapp.com/the-missing-design-primitive" rel="canonical">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Missing Design Primitive",
+  "name": "The Missing Design Primitive",
+  "description": "It's all in your head, perfectly clear. Then you spend six prompts trying to explain it. Moio lets you design interactions on canvas and see them run as real HTML.",
+  "url": "/the-missing-design-primitive",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Organization",
+    "name": "Moio"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Moio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://moioapp.com/images/Moio_logo4.svg"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://moioapp.com/images/Moio_logo4.svg"
+  }
+}
+</script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KLYB7ZXCBN"></script>
+  <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('js', new Date());gtag('config', 'G-KLYB7ZXCBN');</script>
+  <script src="js/site.js" defer></script>
+  <noscript>
+    <img height="1" width="1" style="display: none" alt="" src="https://px.ads.linkedin.com/collect/?pid=10129793&fmt=gif">
+  </noscript>
+</head>
+<body class="body">
+  <div role="banner" class="navigation w-nav">
+    <div class="header-wrap">
+      <a href="index.html" class="logo w-nav-brand"><img src="images/Moio_logo4.svg" alt="" class="logo-image">
+        <div class="text-block-18">alpha v0.1<br></div>
+      </a>
+      <div class="menu">
+        <a href="pricing.html" class="header-nav-item small w-nav-link">Pricing</a>
+        <a href="https://moioapp.com/docs/" target="_blank" class="header-nav-item small w-nav-link">Docs</a>
+        <a href="https://moioapp.com/docs/release-notes" target="_blank" class="header-nav-item small w-nav-link">Changelog</a>
+        <a href="about.html" class="header-nav-item small w-nav-link">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="w-layout-blockcontainer flex-container hero w-container">
+    <div class="w-embed w-script">
+      <style>
+  .moio-page {
+    --moio-bg: #000000;
+    --moio-text-primary: #fafafa;
+    --moio-text-secondary: #aeaeb2;
+    --moio-text-muted: #525666;
+    --moio-border: #292933;
+    --moio-separator: #333340;
+    --moio-icon: #6f6f7a;
+    --moio-gradient: linear-gradient(90deg, #00a34f 0%, #30e86e 56.73%, #4c66f6 70.67%, #2944cc 100%);
+    --font-display: 'Nicephore', sans-serif;
+    --font-body: 'Baikal Light', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --text-2xl: 72px;
+    --text-xl: 28px;
+    --text-lg: 25px;
+    --text-md: 24px;
+    --text-base: 18px;
+    --text-sm: 16px;
+    --leading-2xl: 80px;
+    --leading-xl: 1.2;
+    --leading-lg: 32px;
+    --leading-base: 1.618;
+    --leading-sm: 24px;
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    --weight-black: 800;
+    --tracking-wide: 0.28px;
+    --tracking-normal: 0;
+    --tracking-tight-sm: -0.16px;
+    --tracking-tight: -0.18px;
+    --tracking-tight-md: -0.24px;
+    --tracking-tight-lg: -0.5px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 40px;
+    --space-2xl: 60px;
+    --radius-card: 8px;
+    --radius-pill: 36px;
+    background: transparent;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .moio-content {
+    max-width: 1297px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    align-items: flex-start;
+  }
+  .moio-section-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--moio-text-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: normal;
+  }
+  .moio-separator {
+    width: 100%;
+    height: 1px;
+    background-image: repeating-linear-gradient(to right, var(--moio-separator) 0, var(--moio-separator) 4px, transparent 4px, transparent 8px);
+  }
+  .moio-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    width: 100%;
+  }
+  .moio-hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    width: 100%;
+  }
+  .moio-hero__video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 20px #5040ff;
+  }
+  .moio-hero__video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .moio-hero__cta-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-xl);
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .moio-hero__cta-row .moio-hero__body {
+    flex: 1;
+    width: auto;
+  }
+  .moio-hero__cta-row .moio-btn-cta {
+    flex: 0 0 400px;
+    width: 400px;
+  }
+  .moio-hero__headline {
+    padding-top: 24px;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-2xl);
+    font-weight: var(--weight-black);
+    width: 100%;
+  }
+  .moio-hero__headline-white {
+    color: var(--moio-text-primary);
+  }
+  .moio-hero__headline-gradient {
+    background-image: var(--moio-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .moio-hero__body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-light);
+    font-size: var(--text-md);
+    line-height: 1.45;
+    letter-spacing: var(--tracking-tight-lg);
+    color: var(--moio-text-primary);
+  }
+  .moio-card-grid {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    width: 100%;
+  }
+  .moio-feature-card {
+    flex: 1 0 0%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+  .moio-feature-card__image {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-card);
+    width: 100%;
+    flex-shrink: 0;
+    border: solid var(--moio-border) 1px;
+    background: #000;
+    transition: border-color 200ms ease;
+  }
+  .moio-feature-card--active .moio-feature-card__image {
+    border-color: var(--lime);
+  }
+  .moio-feature-card__image video,
+  .moio-feature-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 400ms ease;
+  }
+  .moio-feature-card__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-black);
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--moio-text-primary);
+    width: 100%;
+    padding-top: var(--space-sm);
+  }
+  .moio-feature-card__body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-light);
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    letter-spacing: var(--tracking-tight);
+    color: var(--moio-text-secondary);
+    width: 100%;
+  }
+  .moio-step-card {
+    flex: 1;
+    display: flex;
+    gap: var(--space-md);
+  }
+  .moio-step-card__number {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-light);
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    letter-spacing: var(--tracking-tight);
+    color: var(--moio-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .moio-step-card__icon {
+    flex: 0 0 auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .moio-step-card__icon--01 {
+    width: 131px;
+    height: 180px;
+    background-image: url("data:image/svg+xml,<svg fill='none' preserveAspectRatio='none' viewBox='0 0 131 180' xmlns='http://www.w3.org/2000/svg'><path d='M5 1.5H88.2793C89.2051 1.5 90.0931 1.86714 90.749 2.52051L128.47 40.0967C129.129 40.7534 129.5 41.6466 129.5 42.5771V175C129.5 176.933 127.933 178.5 126 178.5H5C3.067 178.5 1.5 176.933 1.5 175V5C1.5 3.067 3.06701 1.5 5 1.5Z' stroke='%236f6f7a' stroke-width='3'/><path d='M37 66.7C37 58.5814 43.6162 52 51.7778 52H66.5556V81.4H51.7778V79.3H64.4444V54.1H51.7778C44.7822 54.1 39.1111 59.7412 39.1111 66.7C39.1111 73.6588 44.7822 79.3 51.7778 79.3V81.4C43.6162 81.4 37 74.8186 37 66.7Z' fill='%236f6f7a'/><path d='M37 94C37 85.8814 43.6162 79.3 51.7778 79.3H66.5556V108.7H51.7778V106.6H64.4444V81.4H51.7778C44.7822 81.4 39.1111 87.0412 39.1111 94C39.1111 100.959 44.7822 106.6 51.7778 106.6V108.7C43.6162 108.7 37 102.119 37 94Z' fill='%236f6f7a'/><path d='M64.4444 121.3V108.7H51.7778C44.7822 108.7 39.1111 114.341 39.1111 121.3C39.1111 128.259 44.7822 133.9 51.7778 133.9V136C43.6162 136 37 129.419 37 121.3C37 113.181 43.6162 106.6 51.7778 106.6H66.5556V121.3C66.5556 129.419 59.9393 136 51.7778 136V133.9C58.7734 133.9 64.4444 128.259 64.4444 121.3Z' fill='%236f6f7a'/><path d='M91.8889 66.7C91.8889 59.7412 86.2178 54.1 79.2222 54.1H66.5556V79.3H79.2222V81.4H64.4444V52H79.2222C87.3838 52 94 58.5814 94 66.7C94 74.8186 87.3838 81.4 79.2222 81.4V79.3C86.2178 79.3 91.8889 73.6588 91.8889 66.7Z' fill='%236f6f7a'/><path d='M91.8889 94C91.8889 87.0412 86.2178 81.4 79.2222 81.4C72.2266 81.4 66.5556 87.0412 66.5556 94C66.5556 100.959 72.2266 106.6 79.2222 106.6V108.7C71.0607 108.7 64.4444 102.119 64.4444 94C64.4444 85.8814 71.0607 79.3 79.2222 79.3C87.3838 79.3 94 85.8814 94 94C94 102.119 87.3838 108.7 79.2222 108.7V106.6C86.2178 106.6 91.8889 100.959 91.8889 94Z' fill='%236f6f7a'/></svg>");
+  }
+  .moio-step-card__icon--02 {
+    width: 141px;
+    height: 181px;
+    background-image: url("data:image/svg+xml,<svg fill='none' preserveAspectRatio='none' viewBox='0 0 141 181' xmlns='http://www.w3.org/2000/svg'><path d='M46.8323 177.653L21.0132 147.143C21.0132 147.143 6.93006 137.755 13.9716 130.714C21.0132 123.673 30.402 130.714 30.402 130.714L46.8323 142.449L49.1795 76.7347C49.1795 76.7347 50.3528 65 58.5679 65C67.9571 65 67.9571 76.7347 67.9571 76.7347V107.245M67.9571 133.061V107.245M67.9571 107.245C67.9571 107.245 70.3012 102.551 77.3458 102.551C85.558 102.551 86.7346 114.286 86.7346 114.286M86.7346 114.286V133.061M86.7346 114.286C86.7346 114.286 87.9111 109.592 96.1233 109.592C104.335 109.592 105.512 121.327 105.512 121.327M105.512 121.327L105.512 133.061M105.512 121.327C105.512 121.327 106.689 116.633 114.901 116.633C123.113 116.633 121.942 126.02 121.942 126.02L119.595 180' stroke='%236f6f7a' stroke-width='3'/><path d='M130.667 44C135.821 44.0002 140 48.209 140 53.4004V81.5996C140 86.6287 136.079 90.7363 131.147 90.9883L130.667 91H79.4805V86H131.147C133.725 86 135 84.5957 135 82V53C135 50.4043 133.725 49 131.147 49H8.85254C6.27521 49 5 50.4043 5 53V82.084C5 84.6797 6.27521 86 8.85254 86H35.0645V91H8.85254C4.08054 90.7561 0.253847 86.8901 0.0117188 82.084L0 81.5996V53.4004C0 48.209 4.1785 44.0002 9.33301 44H130.667Z' fill='%236f6f7a'/><line stroke='%236f6f7a' stroke-width='3' x1='70.5' x2='70.5' y1='30' y2='0'/><line stroke='%236f6f7a' stroke-width='3' x1='41.807' x2='35.7567' y1='32.6752' y2='10.0951'/><line stroke='%236f6f7a' stroke-width='3' x1='100.23' x2='106.281' y1='31.8987' y2='9.31865'/></svg>");
+  }
+  .moio-step-card__icon--03 {
+    width: 132px;
+    height: 180px;
+    background-image: url("data:image/svg+xml,<svg fill='none' preserveAspectRatio='none' viewBox='0 0 132 180' xmlns='http://www.w3.org/2000/svg'><path d='M5 1.5H125C126.933 1.5 128.5 3.06701 128.5 5V174C128.5 175.933 126.933 177.5 125 177.5H5C3.067 177.5 1.5 175.933 1.5 174V5C1.5 3.067 3.067 1.5 5 1.5Z' stroke='%236f6f7a' stroke-width='3'/><path d='M3.33398 28L129.334 28' stroke='%236f6f7a' stroke-width='2'/><path d='M77.334 84L90.334 97.5L77.334 111' stroke='%236f6f7a' stroke-width='3'/><path d='M55.334 111L42.334 97.5L55.334 84' stroke='%236f6f7a' stroke-width='3'/><circle cx='116.834' cy='14.5' fill='%236f6f7a' r='3.5'/><ellipse cx='105.334' cy='14.5' fill='%236f6f7a' rx='3' ry='3.5'/></svg>");
+  }
+  .moio-step-card__text {
+    flex: 1 0 0%;
+    text-align: left;
+    font-size: var(--text-base);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-base);
+  }
+  .moio-step-card__text-bold {
+    font-family: var(--font-body);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-base);
+    color: var(--moio-text-primary);
+  }
+  .moio-step-card__text-normal {
+    font-family: var(--font-body);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-base);
+    color: var(--moio-text-secondary);
+  }
+  .moio-roadmap-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    width: 100%;
+  }
+  .moio-roadmap-card {
+    flex: 1 0 0%;
+    min-width: 300px;
+    min-height: 180px;
+    position: relative;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--moio-border);
+  }
+  .moio-roadmap-card__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    font-size: var(--text-base);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-base);
+    min-height: inherit;
+  }
+  .moio-roadmap-card__title {
+    font-family: var(--font-body);
+    font-weight: var(--weight-bold);
+    color: var(--moio-text-primary);
+  }
+  .moio-roadmap-card__body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-regular);
+    color: var(--moio-text-secondary);
+  }
+  .moio-btn-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 240px;
+    border-radius: var(--radius-pill);
+    border: 2px solid white;
+    background: transparent;
+    font-family: var(--font-body);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-lg);
+    letter-spacing: var(--tracking-tight-lg);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .moio-btn-cta:hover {
+    background: var(--lime);
+    border-color: var(--lime);
+  }
+  .moio-links {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+    width: 100%;
+  }
+  .moio-link-text {
+    font-family: var(--font-body);
+    font-weight: var(--weight-light);
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    letter-spacing: var(--tracking-tight);
+    color: var(--moio-text-secondary);
+    text-decoration: none;
+  }
+  .moio-link-text:hover {
+    color: var(--lime);
+  }
+  .moio-body-text {
+    font-family: var(--font-body);
+    font-weight: var(--weight-light);
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    letter-spacing: var(--tracking-tight);
+    color: var(--moio-text-secondary);
+    width: 100%;
+  }
+  @media (max-width: 1024px) {
+    .moio-content {
+      max-width: 720px;
+    }
+    .moio-hero__cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .moio-hero__cta-row .moio-btn-cta {
+      flex: none;
+      width: 400px;
+    }
+    .moio-hero__headline {
+      font-size: 72px;
+      line-height: 76px;
+    }
+    .moio-card-grid {
+      flex-direction: column;
+    }
+    .moio-roadmap-card {
+      min-width: 280px;
+    }
+  }
+  @media (max-width: 768px) {
+    .moio-hero__headline {
+      padding-top: 0;
+    }
+    .moio-hero__cta-row {
+      flex-direction: column;
+      align-items: center;
+    }
+    .moio-hero__cta-row .moio-btn-cta {
+      flex: none;
+      width: 100%;
+    }
+    .moio-hero__headline {
+      font-size: 48px;
+      line-height: 52px;
+    }
+    .moio-hero__body {
+      font-size: var(--text-base);
+      line-height: 28px;
+    }
+    .moio-step-card {
+      flex-wrap: wrap;
+    }
+    .moio-step-card__icon {
+      width: 100px;
+      height: 137px;
+      align-self: flex-start;
+    }
+    .moio-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+      <div class="moio-page">
+        <div class="moio-content">
+          <!--  ============ HERO SECTION ============  -->
+          <div class="moio-hero">
+            <div class="moio-hero__headline">
+              <p class="moio-hero__headline-gradient">Design how it behaves.</p>
+            </div>
+            <div class="moio-hero__cta-row">
+              <p class="moio-hero__body">
+                The filter goes inline. The panel collapses. The empty state updates. You can see it all, perfectly clear. So try it. On canvas, with your hands. The thing in your head becomes the thing on screen.
+              </p>
+              <a href="https://moioapp.com/signup" class="moio-btn-cta">Try now</a>
+            </div>
+            <div class="moio-hero__video">
+              <video autoplay="" loop="" muted="" playsinline="" style="width:100%;display:block;">
+                <source src="videos/2026-moio-hero-loop_webm.webm" type="video/webm">
+                <source src="videos/2026-moio-hero-loop_mp4.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="moio-separator"></div>
+          <!--  ============ WHAT CHANGES SECTION ============  -->
+          <div class="moio-section">
+            <p class="moio-section-label">What's different on canvas</p>
+            <div class="moio-card-grid">
+              <!--  Feature Card 1  -->
+              <div class="moio-feature-card">
+                <div class="moio-feature-card__image">
+                  <video muted="" playsinline="">
+                    <source src="videos/with-your-hands-cropped-av1-v1_mp4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <p class="moio-feature-card__title">Explore with your hands, not your words.</p>
+                <p class="moio-feature-card__body">Grab it, move it, flip the layout try something crazy. Should the filter live in the sidebar or inline? Is the checkbox actually a sneezing cat head? Try both in the time it takes to write one prompt.</p>
+              </div>
+              <!--  Feature Card 2  -->
+              <div class="moio-feature-card">
+                <div class="moio-feature-card__image">
+                  <video muted="" playsinline="">
+                    <source src="videos/change-it-v1_mp4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <p class="moio-feature-card__title">Change a thing, see what it breaks</p>
+                <p class="moio-feature-card__body">You moved the filter inline. Now the table needs to reflow, the empty state changes, and the pagination breaks. In a terminal, you discover these one at a time, mid-prompt. On canvas, you see the cascade immediately.</p>
+              </div>
+              <!--  Feature Card 3  -->
+              <div class="moio-feature-card">
+                <div class="moio-feature-card__image">
+                  <video muted="" playsinline="">
+                    <source src="videos/dynamic-layout-cropped-av1-v10_mp4.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <p class="moio-feature-card__title">Test the design, not the code</p>
+                <p class="moio-feature-card__body">Your design runs as real HTML. Inputs work. Elements are draggable. State updates. You're evaluating whether the approach is right, not whether the code is. Show it to your team, get a reaction, iterate.</p>
+              </div>
+            </div>
+          </div>
+          <div class="moio-separator"></div>
+          <!--  ============ HOW IT WORKS SECTION ============  -->
+          <div class="moio-section">
+            <p class="moio-section-label">HOW IT WORKS</p>
+            <div class="moio-card-grid">
+              <!--  Step 01  -->
+              <div class="moio-step-card">
+                <p class="moio-step-card__number">01</p>
+                <div class="moio-step-card__icon moio-step-card__icon--01"></div>
+                <p class="moio-step-card__text">
+                  <span class="moio-step-card__text-bold">Import from Figma. </span>
+                  <span class="moio-step-card__text-normal">Paste or import your .fig file. Your layouts, components, and styles intact.</span>
+                </p>
+              </div>
+              <!--  Step 02  -->
+              <div class="moio-step-card">
+                <p class="moio-step-card__number">02</p>
+                <div class="moio-step-card__icon moio-step-card__icon--02"></div>
+                <p class="moio-step-card__text">
+                  <span class="moio-step-card__text-bold">Add interactions visually. </span>
+                  <span class="moio-step-card__text-normal">Convince your rectangles they&rsquo;re interactive. Add &ldquo;this is an input field&rdquo; behavior and preview live.</span>
+                </p>
+              </div>
+              <!--  Step 03  -->
+              <div class="moio-step-card">
+                <p class="moio-step-card__number">03</p>
+                <div class="moio-step-card__icon moio-step-card__icon--03"></div>
+                <p class="moio-step-card__text">
+                  <span class="moio-step-card__text-bold">See it run live. </span>
+                  <span class="moio-step-card__text-normal">Your design renders as real HTML. Click through it, test edge cases, catch what&rsquo;s off, adjust immediately.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="moio-separator"></div>
+          <!--  ============ WHAT'S COMING SECTION ============  -->
+          <div class="moio-section">
+            <p class="moio-section-label">WE&rsquo;RE FAR FROM DONE</p>
+            <div class="moio-roadmap-grid">
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Variables & Expressions</p>
+                  <p class="moio-roadmap-card__body">Bind content to data. Use formulas to make elements respond dynamically. Like a spreadsheet, but for your UI.</p>
+                </div>
+              </div>
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Token support</p>
+                  <p class="moio-roadmap-card__body">Design tokens that carry through from your system into live preview. Consistency without re-specifying.</p>
+                </div>
+              </div>
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Conditions</p>
+                  <p class="moio-roadmap-card__body">Show or hide elements based on state. If this, then that. On canvas.</p>
+                </div>
+              </div>
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Behavior library</p>
+                  <p class="moio-roadmap-card__body">Pre-built interaction patterns. Drop them in, customize, move on.</p>
+                </div>
+              </div>
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Data driven components</p>
+                  <p class="moio-roadmap-card__body">Components that respond to real data. Not lorem ipsum. Not placeholder content.</p>
+                </div>
+              </div>
+              <div class="moio-roadmap-card">
+                <div class="moio-roadmap-card__inner">
+                  <p class="moio-roadmap-card__title">Animations</p>
+                  <p class="moio-roadmap-card__body">Standard and data-driven motion. Presets or custom. Built into the interaction layer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  ============ FOOTER TEXT ============  -->
+          <p class="moio-body-text">The thing in your head. On screen. Before any code exists. Ready when you are.</p>
+          <!--  ============ LINKS SECTION ============  -->
+          <div class="moio-links">
+            <a href="https://moioapp.com/signup" class="moio-btn-cta">Try now</a>
+            <a href="https://moioapp.com/pricing" class="moio-link-text">See pricing &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <script>
+  var LOOP_START = 3;
+  var LOOP_END_OFFSET = 2;
+  var FADE_DURATION = 400;
+  var cards = [];
+  document.querySelectorAll('.moio-feature-card').forEach(function (el) {
+    var video = el.querySelector('video');
+    if (!video) return;
+    var looping = false;
+    var started = false;
+    function play() {
+      if (!started) {
+        video.currentTime = LOOP_START;
+        started = true;
+      }
+      video.style.opacity = '1';
+      video.play();
+    }
+    function doLoopFade() {
+      if (looping) return;
+      looping = true;
+      video.style.opacity = '0';
+      setTimeout(function () {
+        video.currentTime = LOOP_START;
+        video.style.opacity = '1';
+        looping = false;
+      }, FADE_DURATION);
+    }
+    video.addEventListener('timeupdate', function () {
+      if (!video.duration || looping) return;
+      if (video.currentTime >= video.duration - LOOP_END_OFFSET) doLoopFade();
+    });
+    video.addEventListener('ended', doLoopFade);
+    cards.push({ play: play });
+  });
+  cards.forEach(function (c) {
+    c.play();
+  });
+</script>
+    </div>
+  </div>
+  <div class="section cc-footer">
+    <div class="w-layout-blockcontainer footer w-container">
+      <div class="w-layout-grid footer-grid">
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba246422773f-6422773c" class="w-layout-blockcontainer footer-logo w-container"><img src="images/moio_icon3.svg" loading="lazy" alt="" height="48" class="footer-logo-img">
+          <div class="footer-logo-txt">Built with anxiety, whiskey and coffee. Proudly remote © 2024</div>
+          <div class="footer-address">Moio Technologies Inc.<br>8 The Green, Dover,<br>DE 19901<br></div>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba2464227743-6422773c">
+          <a href="index.html" class="text-link footer">Home</a>
+          <a href="about.html" class="text-link footer">About</a>
+          <a href="support.html" class="text-link footer">Support</a>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba2464227748-6422773c">
+          <a href="articles.html" class="text-link footer">Articles</a>
+          <a href="privacy-terms.html" class="text-link footer">Privacy Terms</a>
+          <a href="mailto:hi@moioapp.com" class="text-link footer">Contact Us</a>
+        </div>
+        <div id="w-node-be4ae223-6f17-fe28-0840-ba246422774d-6422773c" class="social-buttons">
+          <div class="footer-wrap">
+            <a href="https://www.linkedin.com/company/moioapp/" target="_blank" class="link-block w-inline-block"></a>
+            <a href="https://twitter.com/moioapp" target="_blank" class="link-block-2 w-inline-block"></a>
+            <a href="https://moioapp.slack.com/ssb/redirect" target="_blank" class="link-block-3 w-inline-block"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
