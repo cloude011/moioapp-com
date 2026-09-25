@@ -3629,3 +3629,19 @@ figcaption {
   .rh-banner-text { font-size: 16px; line-height: 21px; }
   .rh-banner-pill { font-size: 11px; }
 }
+.rh-banner-x {
+  border: 2px solid var(--white);
+  color: var(--white);
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  transition: background-color .2s, color .2s, box-shadow .2s;
+  display: inline-flex;
+}
+.rh-banner-x:hover {
+  background-color: var(--white);
+  color: var(--2);
+  box-shadow: 0 0 14px 2px var(--blue-violet);
+}
