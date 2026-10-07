@@ -3668,20 +3668,6 @@ figcaption {
   50% { transform: translateY(-14px) rotate(4deg); }
 }
 
-.alt-grid-hero { position: relative; isolation: isolate; }
-.alt-grid-hero::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 8%;
-  right: 0;
-  width: min(520px, 45vw);
-  aspect-ratio: 1;
-  background: url('../images/clank-mascot.svg') center / contain no-repeat;
-  opacity: .045;
-  transform: rotate(14deg);
-  pointer-events: none;
-}
 
 .footer-lockup { display: flex; align-items: center; gap: 12px; flex: none; }
 .footer-lockup-x { color: var(--mid-greenish); font-family: Baikal Medium, sans-serif; font-size: 18px; line-height: 1; }
@@ -3697,4 +3683,44 @@ figcaption {
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-mascot { animation: none; }
+}
+
+/* ── Site-wide Clank backdrop ── */
+.body::before,
+.body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+.body::after {
+  right: -18vmin;
+  bottom: -22vmin;
+  width: min(110vmin, 1100px);
+  aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(196, 181, 253, .16), rgba(196, 181, 253, .05) 60%, transparent);
+  filter: blur(20px);
+}
+.body::before {
+  right: -10vmin;
+  bottom: -14vmin;
+  width: min(92vmin, 920px);
+  aspect-ratio: 1;
+  background: url('../images/clank-mascot.svg') center / contain no-repeat;
+  opacity: .085;
+  -webkit-mask-image: linear-gradient(115deg, transparent 8%, #000 55%);
+  mask-image: linear-gradient(115deg, transparent 8%, #000 55%);
+  transform: rotate(-14deg);
+  animation: clank-drift 22s ease-in-out infinite;
+}
+@keyframes clank-drift {
+  0%, 100% { transform: rotate(-14deg) translate(0, 0); }
+  50% { transform: rotate(-8deg) translate(-1.5vmin, -2vmin); }
+}
+@media screen and (max-width: 767px) {
+  .body::before { width: 120vw; right: -35vw; bottom: -18vh; opacity: .07; }
+  .body::after { width: 140vw; right: -45vw; bottom: -25vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .body::before { animation: none; }
 }
