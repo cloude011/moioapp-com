@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 26 752 752">
+  <defs>
+    <clipPath id="mouth"><path d="M80 420 Q412 294 743 420 Q412 714 80 420 Z"/></clipPath>
+  </defs>
+  <circle cx="412" cy="402" r="376" fill="#c4b5fd"/>
+  <rect x="256" y="151" width="93" height="172" rx="46.5" fill="#131313"/>
+  <rect x="475" y="151" width="93" height="172" rx="46.5" fill="#131313"/>
+  <path d="M80 420 Q412 294 743 420 Q412 714 80 420 Z" fill="#131313"/>
+  <g clip-path="url(#mouth)" fill="#fffcf3" stroke="#fffcf3" stroke-width="10" stroke-linejoin="round">
+    <polygon points="160,330 300,330 232,450"/>
+    <polygon points="338,330 486,330 412,445"/>
+    <polygon points="524,330 664,330 594,450"/>
+    <polygon points="200,620 324,620 262,470"/>
+    <polygon points="345,620 479,620 412,489"/>
+    <polygon points="500,620 624,620 562,470"/>
+  </g>
+</svg>

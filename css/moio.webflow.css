@@ -3645,3 +3645,56 @@ figcaption {
   color: var(--2);
   box-shadow: 0 0 14px 2px var(--blue-violet);
 }
+
+/* ── Clank mascot placements ── */
+.rh-banner-rh { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; }
+.rh-banner-mascot { width: 1.15em; height: 1.15em; transform: translateY(-1px); transition: transform .3s ease; }
+.rh-banner:hover .rh-banner-mascot { transform: translateY(-1px) rotate(-12deg) scale(1.12); }
+
+.hero-mockup-link { position: relative; }
+.hero-mascot {
+  position: absolute;
+  z-index: 2;
+  top: -64px;
+  right: -56px;
+  width: 136px;
+  height: 136px;
+  filter: drop-shadow(0 18px 40px rgba(196, 181, 253, .35));
+  animation: mascot-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-14px) rotate(4deg); }
+}
+
+.alt-grid-hero { position: relative; isolation: isolate; }
+.alt-grid-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: 0;
+  width: min(520px, 45vw);
+  aspect-ratio: 1;
+  background: url('../images/clank-mascot.svg') center / contain no-repeat;
+  opacity: .045;
+  transform: rotate(14deg);
+  pointer-events: none;
+}
+
+.footer-lockup { display: flex; align-items: center; gap: 12px; flex: none; }
+.footer-lockup-x { color: var(--mid-greenish); font-family: Baikal Medium, sans-serif; font-size: 18px; line-height: 1; }
+.footer-mascot { width: 44px; height: 44px; transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.footer-lockup:hover .footer-mascot { transform: rotate(-14deg) scale(1.1); }
+
+@media screen and (max-width: 991px) {
+  .hero-mascot { width: 96px; height: 96px; top: -44px; right: -20px; }
+}
+@media screen and (max-width: 767px) {
+  .hero-mascot { display: none; }
+  .footer-lockup { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mascot { animation: none; }
+}
